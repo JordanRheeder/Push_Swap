@@ -6,7 +6,7 @@
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 08:42:17 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/06/10 13:54:59 by jrheeder         ###   ########.fr       */
+/*   Updated: 2019/07/22 12:49:21 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,6 @@
 
 void	ft_putendl(char const *s)
 {
-	int	i;
-
-	i = 0;
-	if (s)
-	{
-		while (s[i] != '\0')
-		{
-			ft_putchar(s[i]);
-			i++;
-		}
-		ft_putchar('\n');
-	}
+	ft_putstr(s);
+	write(1, "\n", 1);
 }

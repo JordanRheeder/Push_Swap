@@ -1,6 +1,4 @@
 #include "push_swap.h"
-// #include "libft/libft.h"
-#include "libft/get_next_line.h"
 #include <stdio.h>
 
 void    do_op(t_stack **stack_a, t_stack **stack_b, char *line)
@@ -62,10 +60,10 @@ void    free_stack(t_stack *stack)
 {
     if (stack->next)
     free_stack(stack->next);
-    free(stack);
+	free(stack);
 }
 
-void    read_input(t_stack **stack_a, t_stack **stack_b, char **line)
+int    read_input(t_stack **stack_a, t_stack **stack_b, char **line)
 {
     while(get_next_line(0, line))
     {
@@ -74,12 +72,11 @@ void    read_input(t_stack **stack_a, t_stack **stack_b, char **line)
             do_op(stack_a, stack_b, *line);
             free(*line);
         }
-        else if (!check_line(*line))
+        else if (!(check_line(*line)))
         {
             free(*line);
-            free_stack(*stack_a);
-            printf("Error check_line\n");
-            return ;
+            return (0);
         }
     }
+    return (1);
 }

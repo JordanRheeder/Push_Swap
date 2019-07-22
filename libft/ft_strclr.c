@@ -6,18 +6,15 @@
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/26 23:10:29 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/06/05 17:12:43 by jrheeder         ###   ########.fr       */
+/*   Updated: 2019/07/22 12:51:13 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 void	ft_strclr(char *s)
 {
-	int i;
-
-	i = 0;
-	while (s && *(s + i))
-	{
-		*(s + i) = '\0';
-		i++;
-	}
+	if (s)
+		while (*s)
+			*s++ = '\0';
 }

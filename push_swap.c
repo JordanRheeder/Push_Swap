@@ -45,7 +45,7 @@ int main (int argc, char *argv[])
     t_stack	*stack_a;
 	t_stack *stack_b;
 
-    char ops[4][4] = {"rra", "ra", "pb"};
+    char ops[4][4] = {"rra", "ra", "pbb"};
 
     stack_b = NULL;
 //    cmds = malloc(sizeof(t_ops) * 4);
@@ -55,9 +55,13 @@ int main (int argc, char *argv[])
 		return (0);
 	}
     stack_a = stack_new(argc, argv);
-//    ft_putendl_fd(ops[0], 1);
-    ft_putendl_fd(ops[1], 1);
-//    ft_putendl_fd(ops[2], 1);
+    ft_putendl_fd(ops[2], 1);
+//	ft_putendl_fd(ops[0], 1);
+//          ft_putendl_fd(ops[0], 1);
+//    ft_putendl_fd(ops[1], 1);
+//	ft_putendl_fd(ops[1], 1);
+ //   ft_putendl_fd(ops[1], 1);
+///    ft_putendl_fd(ops[2], 1);
 //    ft_putendl_fd(ops[2], 1);
     
    // cmds = stackpopulate(2, ops);

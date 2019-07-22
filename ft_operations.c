@@ -17,13 +17,13 @@ void    push(t_stack **head, int val)
 
 int		pop(t_stack **head)
 {
-	int	retval = -1;
-	t_stack *next_node = NULL;
+	int	retval;
+	t_stack *next_node;
 
 	if (*head == NULL)
-	{
 		return (-1);
-	}
+	next_node = NULL;
+	retval = -1;
 	next_node = (*head)->next;
 	retval = (*head)->num;
 	free(*head);
@@ -31,24 +31,11 @@ int		pop(t_stack **head)
 	return (retval);
 }
 
-int		getCount(t_stack *head)
-{
-	int count = 0;
-	t_stack *current = head;
-	while (current != NULL)
-	{
-		count++;
-		current = current->next;
-	}
-	return (count);
-}
-
 t_stack		*stack_new(int argc, char **argv)
 {
-    t_stack    *stack;
-    char    **args;
-    int        i;
-    char c = ' ';
+    t_stack    	*stack;
+    char    	**args;
+    int			i;
 
     if (!(stack = malloc(sizeof(t_stack))))
     {
@@ -57,13 +44,12 @@ t_stack		*stack_new(int argc, char **argv)
     }
     if (argc == 2)
     {
-        // args = (char**)malloc(sizeof(char*) * (ft_wordcount(*argv, ' ')));
-        args = ft_strsplit(argv[1], c);
-        i = ft_wordcount(argv[1], c) - 1;
+        args = ft_strsplit(argv[1], ' ');
+        i = ft_wordcount(argv[1], ' ') - 1;
         stack->num = ft_atoi(args[i]);
         stack->next = NULL;
         i--;
-        while (args[i])
+        while (i >= 0)
         {
             push(&stack, ft_atoi(args[i]));
             i--;
@@ -230,4 +216,16 @@ void	print_stack(t_stack **stack)
 		ft_putchar('\n');
 		print = print->next;
 	}
+}
+
+int		getCount(t_stack *head)
+{
+	int count = 0;
+	t_stack *current = head;
+	while (current != NULL)
+	{
+		count++;
+		current = current->next;
+	}
+	return (count);
 }

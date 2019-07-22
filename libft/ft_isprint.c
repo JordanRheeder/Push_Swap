@@ -6,13 +6,13 @@
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 12:27:22 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/06/05 17:17:27 by jrheeder         ###   ########.fr       */
+/*   Updated: 2019/07/22 12:31:09 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isprint(int c)
 {
-	if (c >= 32 && c < 127)
+	if (c >= ' ' && c < '~')
 		return (1);
 	else
 		return (0);

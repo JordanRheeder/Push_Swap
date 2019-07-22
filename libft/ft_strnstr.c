@@ -6,32 +6,33 @@
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/23 00:34:27 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/06/10 23:43:01 by jrheeder         ###   ########.fr       */
+/*   Updated: 2019/07/22 12:54:51 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *hay, const char *ndl, size_t len)
 {
-	unsigned int i;
-	unsigned int j;
+	size_t	nd_len;
+	size_t	i;
+	int		last;
 
-	if (!*needle)
-		return ((char*)haystack);
+	if (!(*ndl))
+		return ((char *)hay);
+	if (!(*hay))
+		return (NULL);
+	nd_len = ft_strlen(ndl);
 	i = 0;
-	while (haystack[i] != '\0' && (size_t)i < len)
+	last = 1;
+	while (nd_len <= len && hay[i] != '\0' &&
+			(last = ft_strncmp(&hay[i], ndl, nd_len)))
 	{
-		if (haystack[i] == needle[0])
-		{
-			j = 1;
-			while (needle[j] != '\0' && haystack[i + j] == needle[j] &&
-					(size_t)(i + j) < len)
-				++j;
-			if (needle[j] == '\0')
-				return ((char*)&haystack[i]);
-		}
-		++i;
+		len--;
+		i++;
 	}
-	return (0);
+	if (last == 0)
+		return ((char*)&hay[i]);
+	else
+		return (NULL);
 }

@@ -6,28 +6,26 @@
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/23 00:32:55 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/06/05 17:12:20 by jrheeder         ###   ########.fr       */
+/*   Updated: 2019/07/22 12:50:55 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, const char *src)
+char	*ft_strcat(char *s1, const char *s2)
 {
-	int		i;
-	int		j;
+	int i;
+	int j;
 
 	i = 0;
 	j = 0;
-	if (dest == NULL && src == NULL)
-		return (NULL);
-	while (dest[i])
+	while (s1[i] != '\0')
 		i++;
-	while (src[j])
+	while (s2[j] != '\0')
 	{
-		dest[i + j] = src[j];
+		s1[i + j] = s2[j];
 		j++;
 	}
-	dest[i + j] = '\0';
-	return (dest);
+	s1[i + j] = '\0';
+	return (s1);
 }

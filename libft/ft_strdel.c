@@ -6,7 +6,7 @@
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/26 23:08:22 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/06/18 13:56:16 by jrheeder         ###   ########.fr       */
+/*   Updated: 2019/07/22 12:51:44 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,5 @@
 
 void	ft_strdel(char **as)
 {
-	if (as != NULL)
-	{
-		free(*as);
-		*as = NULL;
-	}
+	ft_memdel((void**)as);
 }
