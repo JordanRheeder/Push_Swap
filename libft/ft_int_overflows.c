@@ -1,22 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strndup.c                                       :+:      :+:    :+:   */
+/*   ft_int_overflows.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/27 14:23:16 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/07/25 14:17:45 by jrheeder         ###   ########.fr       */
+/*   Created: 2019/07/05 20:11:28 by jrheeder          #+#    #+#             */
+/*   Updated: 2019/07/25 14:16:34 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strndup(const char *s1, size_t n)
+int		ft_int_overflows(const char *str)
 {
-	char *tmp;
+	int	res;
+	int	neg;
 
-	if (!(tmp = (char*)malloc(sizeof(char) * (ft_strlen(s1) + 1))))
-		return (NULL);
-	return (ft_strncpy(tmp, s1, n));
+	res = 0;
+	neg = 1;
+	while (ft_iswhitespace(*str))
+		str++;
+	if (*str == '-' || *str == '+')
+	{
+		(*str == '-' || *str == '+') ? (neg = -1) : 1;
+		str++;
+	}
+	while (*str && *str >= '0' && *str <= '9')
+	{
+		res = (res * 10) + (*str - '0');
+		if (neg == 1)
+			if (res > 2147483647)
+				return (1);
+		str++;
+	}
+	res *= neg;
+	if (res < -2147483648)
+		return (1);
+	return (0);
 }

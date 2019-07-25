@@ -6,7 +6,7 @@
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/26 22:44:44 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/06/08 22:01:44 by jrheeder         ###   ########.fr       */
+/*   Updated: 2019/07/22 12:47:47 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	ft_memdel(void **ap)
 {
-	if (ap != NULL)
+	if (ap)
 	{
 		free(*ap);
 		*ap = NULL;

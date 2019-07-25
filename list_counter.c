@@ -1,38 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   list_counter.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/25 13:01:03 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/07/25 15:53:14 by jrheeder         ###   ########.fr       */
+/*   Created: 2019/07/25 15:50:44 by jrheeder          #+#    #+#             */
+/*   Updated: 2019/07/25 15:50:45 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft/libft.h"
+#include "libft/get_next_line.h"
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
 #include <stdlib.h>
 
-int		main(int argc, char *argv[])
+int		avg_of_nodes(t_stack *head)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
 	int		count;
-	char	ops[4][4] = {"rra", "ra", "pb"};
+	int		sum;
+	int		avg;
+	t_stack	*current;
+	if (!head)
+		return (-1);
 
-	stack_b = NULL;
-	if (argc < 2)
+	count = 0;
+	sum = 0;
+	avg = 0;
+	current = head;
+	while (current != NULL)
 	{
-		ft_putstr_fd("Error\n", 2);
-		return (0);
+		count++;
+		sum += current->num;
+		current = current->next;
 	}
-	stack_a = stack_new(argc, argv);
-	count = list_length(&stack_a);
-	printf("list size = %d\n", count);
-	ft_putendl_fd(ops[1], 1);
-	return (0);
+	avg = sum / count;
+	return (avg);
 }

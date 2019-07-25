@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_iswhitespace.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/23 00:32:08 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/07/25 15:48:57 by jrheeder         ###   ########.fr       */
+/*   Created: 2019/05/29 13:37:34 by jrheeder          #+#    #+#             */
+/*   Updated: 2019/07/22 12:32:01 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_bzero(void *s, size_t n)
+char	ft_iswhitespace(int c)
 {
-	ft_memset(s, 0, n);
+	if (c == ' ' || (c >= '\t' && c <= '\r'))
+		return (1);
+	return (0);
 }

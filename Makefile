@@ -4,13 +4,23 @@ CNME = checker
 FLGS = -Wall -Werror -Wextra
 DBFLG = -Wall -Werror -Wextra -g
 CSRC = checker.c \
-		ft_operations.c \
 		read_input.c \
 		validator.c \
+		rot_operations_01.c \
+		rot_operations_02.c \
+		rot_operations_03.c \
+		list_operations.c \
+		list_counter.c \
+		sub_validator.c \
 		$(LIB)
 PSRC = push_swap.c \
 		validator.c \
-		ft_operations.c \
+		sub_validator.c \
+		rot_operations_01.c \
+		rot_operations_02.c \
+		rot_operations_03.c \
+		list_operations.c \
+		list_counter.c \
 		$(LIB)
 
 all: $(CNME) $(PNME)

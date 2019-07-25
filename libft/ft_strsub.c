@@ -1,18 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/23 00:32:08 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/07/25 15:48:57 by jrheeder         ###   ########.fr       */
+/*   Created: 2019/05/27 06:02:51 by jrheeder          #+#    #+#             */
+/*   Updated: 2019/07/22 12:56:00 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	ft_memset(s, 0, n);
+	char	*str;
+	size_t	i;
+
+	str = ft_strnew(len);
+	if (!str || !s)
+		return (NULL);
+	i = 0;
+	s = s + start;
+	if (s)
+	{
+		while (i < len)
+		{
+			str[i] = s[i];
+			i++;
+		}
+		str[i] = '\0';
+	}
+	else
+		return (0);
+	return (str);
 }

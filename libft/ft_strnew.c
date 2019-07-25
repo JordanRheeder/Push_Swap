@@ -6,7 +6,7 @@
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/26 23:02:05 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/06/05 16:17:33 by jrheeder         ###   ########.fr       */
+/*   Updated: 2019/07/22 12:54:41 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,11 @@
 
 char	*ft_strnew(size_t size)
 {
-	return (ft_memalloc((size + 1) * sizeof(char)));
+	char *str;
+
+	str = (char*)malloc(sizeof(char) * size + 1);
+	if (!str)
+		return (NULL);
+	ft_bzero(str, size + 1);
+	return (str);
 }

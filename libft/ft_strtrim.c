@@ -6,36 +6,32 @@
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 13:32:59 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/06/10 17:00:59 by jrheeder         ###   ########.fr       */
+/*   Updated: 2019/07/22 12:56:12 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+#include "libft.h"
+
 char	*ft_strtrim(char const *s)
 {
-	int		sln;
-	int		bgn;
-	char	*str;
+	char	*trimd;
+	int		i;
+	int		j;
 
+	i = 0;
 	if (!s)
-		return (0);
-	bgn = 0;
-	sln = (ft_strlen(s) - 1);
-	while ((s[bgn] == ' ') || (s[bgn] == '\n') ||
-	(s[bgn] == '\t'))
+		return (NULL);
+	j = ft_strlen(s) - 1;
+	while (s[i] == ' ' || (s[i] >= '\t' && s[i] <= '\r'))
 	{
-		bgn++;
-		if (s[bgn] == '\0')
+		i++;
+		if (s[i] == '\0')
 			return (ft_strdup(""));
 	}
-	while ((s[sln] == ' ') || (s[sln] == '\n') ||
-		(s[sln] == '\t'))
-		sln--;
-	str = ft_strsub(s, bgn, (sln - bgn + 1));
-	if (str)
-	{
-		return (str);
-	}
-	return (0);
+	while (s[j] == ' ' || (s[j] >= '\t' && s[j] <= '\r'))
+		j--;
+	trimd = ft_strsub(s, i, (j - i) + 1);
+	return (trimd);
 }
