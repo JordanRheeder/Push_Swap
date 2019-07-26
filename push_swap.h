@@ -6,7 +6,7 @@
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 15:26:26 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/07/25 15:49:28 by jrheeder         ###   ########.fr       */
+/*   Updated: 2019/07/26 15:17:36 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,10 @@ int					dupe_check(int ac, char **av);
 int					avg_of_nodes(t_stack *head);
 int					valid_input_int(int ac, char **av);
 int					valid_input_string(int ac, char **av);
-void				pa(t_stack **dst, t_stack **src);
-void				pb(t_stack **dst, t_stack **src);
+void				do_sort_3(t_stack **a, t_stack **b);
+void				do_sort_5(t_stack **a, t_stack **b);
+void				pa(t_stack **a, t_stack **b);
+void				pb(t_stack **b, t_stack **a);
 void				sa(t_stack **a);
 void				sb(t_stack **b);
 void				ss(t_stack **a, t_stack **b);

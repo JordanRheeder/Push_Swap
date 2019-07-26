@@ -6,7 +6,7 @@
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 15:28:12 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/07/25 16:12:03 by jrheeder         ###   ########.fr       */
+/*   Updated: 2019/07/26 15:09:47 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int ac, char *av[])
 	if (valid_input(ac, av))
 	{
 		stack_a = stack_new(ac, av);
-		if ((read_input(&stack_a, &stack_b, &line)))
+		if (!(read_input(&stack_a, &stack_b, &line)))
 		{
 			ft_putstr_fd("1:Error\n", 2);
 			return (0);
@@ -58,6 +58,6 @@ int	main(int ac, char *av[])
 	print_stack(&stack_a);
 	printf("\n STACK B:\n");
 	print_stack(&stack_b);
-	printf("avg is: %d\n", avgOfNodes(stack_a));
+	printf("avg is: %d\n", avg_of_nodes(stack_a));
 	return (0);
 }

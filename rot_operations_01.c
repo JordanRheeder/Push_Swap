@@ -6,7 +6,7 @@
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 15:27:33 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/07/25 15:27:34 by jrheeder         ###   ########.fr       */
+/*   Updated: 2019/07/26 14:45:00 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,17 @@
 
 void	pa(t_stack **stack_a, t_stack **stack_b)
 {
-	if (*stack_a && *stack_b)
-	{
-		(*stack_b)->next = *stack_a;
-		*stack_b = *stack_a;
-	}
+	t_stack *p_node;
+
+	if (!(*stack_b))
+		return ;
+	p_node = malloc(sizeof(t_stack));
+	p_node->num = pop(stack_b);
+	if (!(*stack_a))
+		p_node->next = NULL;
+	else
+		p_node->next = *stack_a;
+	*stack_a = p_node;
 }
 
 void	pb(t_stack **stack_b, t_stack **stack_a)
@@ -31,12 +37,13 @@ void	pb(t_stack **stack_b, t_stack **stack_a)
 	t_stack *p_node;
 
 	if (!(*stack_a))
-	{
 		return ;
-	}
 	p_node = malloc(sizeof(t_stack));
 	p_node->num = pop(stack_a);
-	p_node->next = *stack_b;
+	if (!(*stack_b))
+		p_node->next = NULL;
+	else
+		p_node->next = *stack_b;
 	*stack_b = p_node;
 }
 

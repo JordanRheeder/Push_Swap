@@ -14,6 +14,7 @@ CSRC = checker.c \
 		sub_validator.c \
 		$(LIB)
 PSRC = push_swap.c \
+		do_sort.c \
 		validator.c \
 		sub_validator.c \
 		rot_operations_01.c \
