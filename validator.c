@@ -6,7 +6,7 @@
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 12:54:00 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/07/26 15:09:31 by jrheeder         ###   ########.fr       */
+/*   Updated: 2019/08/02 09:48:25 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,37 @@ int		sorted(t_stack *stack_a)
 			return (0);
 	}
 	return (1);
+}
+
+t_stack	*normalise(t_stack **stack)
+{
+	t_stack	*s_tmp;
+	t_stack	*tmp;
+	t_stack	*ret;
+	int		*order;
+	int		count;
+	int		i;
+
+	s_tmp	= *stack;
+	order = (int *)malloc(sizeof(int) * list_length(stack));
+	i = -1;
+	while (s_tmp)
+	{
+		tmp = *stack;
+		count = 1;
+		while (tmp)
+		{
+			if (s_tmp->num > tmp->num)
+				count++;
+			tmp = tmp->next;
+		}
+		order[++i] = count;
+		s_tmp = s_tmp->next;
+	}
+	ret = malloc(sizeof(t_stack));
+	ret->num = order[i--];
+	ret->next = NULL;
+	while (i >= 0)
+		push(&ret, order[i--]);
+	return (ret);
 }

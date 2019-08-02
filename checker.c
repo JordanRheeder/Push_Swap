@@ -6,7 +6,7 @@
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 15:28:12 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/07/26 15:09:47 by jrheeder         ###   ########.fr       */
+/*   Updated: 2019/08/02 09:46:42 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int ac, char *av[])
 	}
 	if (valid_input(ac, av))
 	{
-		stack_a = stack_new(ac, av);
+		stack_a = stack_popu(ac, av);
 		if (!(read_input(&stack_a, &stack_b, &line)))
 		{
 			ft_putstr_fd("1:Error\n", 2);

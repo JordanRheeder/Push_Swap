@@ -6,7 +6,7 @@
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 12:55:58 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/07/25 16:01:10 by jrheeder         ###   ########.fr       */
+/*   Updated: 2019/08/02 09:51:49 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int		list_length(t_stack **head)
 	return (cnt);
 }
 
-t_stack		*str_stack_new(t_stack *stack, char **argv)
+t_stack		*str_stack_popu(t_stack *stack, char **argv)
 {
 	int		i;
 	char	**args;
@@ -75,7 +75,7 @@ t_stack		*str_stack_new(t_stack *stack, char **argv)
 	return (stack);
 }
 
-t_stack		*stack_new(int argc, char **argv)
+t_stack		*stack_popu(int argc, char **argv)
 {
 	t_stack	*stack;
 	int		i;
@@ -87,7 +87,8 @@ t_stack		*stack_new(int argc, char **argv)
 	}
 	if (argc == 2)
 	{
-		stack = str_stack_new(stack, argv);
+		stack = str_stack_popu(stack, argv);
+		stack = normalise(&stack);
 		return (stack);
 	}
 	i = (argc - 1);
@@ -99,6 +100,7 @@ t_stack		*stack_new(int argc, char **argv)
 		push(&stack, ft_atoi(argv[i]));
 		i--;
 	}
+	stack = normalise(&stack);
 	return (stack);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 15:26:26 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/07/26 15:17:36 by jrheeder         ###   ########.fr       */
+/*   Updated: 2019/08/02 16:55:46 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ typedef struct		s_stack
 void				push(t_stack **head, int val);
 int					pop(t_stack **head);
 void				print_stack(t_stack **stack);
-t_stack				*stack_new(int ac, char **av);
+t_stack				*stack_popu(int ac, char **av);
+t_stack				*str_stack_popu(t_stack *stack, char **argv);
+t_stack				*normalise(t_stack **stack);
 int					read_input(t_stack **a, t_stack **b, char **line);
 int					sorted(t_stack *a);
 void				free_stack(t_stack *stack);
@@ -38,8 +40,9 @@ int					dupe_check(int ac, char **av);
 int					avg_of_nodes(t_stack *head);
 int					valid_input_int(int ac, char **av);
 int					valid_input_string(int ac, char **av);
-void				do_sort_3(t_stack **a, t_stack **b);
+void				do_sort_3(t_stack **a);
 void				do_sort_5(t_stack **a, t_stack **b);
+
 void				pa(t_stack **a, t_stack **b);
 void				pb(t_stack **b, t_stack **a);
 void				sa(t_stack **a);
