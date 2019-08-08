@@ -6,7 +6,7 @@
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 15:46:58 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/07/25 14:29:05 by jrheeder         ###   ########.fr       */
+/*   Updated: 2019/08/08 11:07:31 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		ft_atoi(const char *str)
 	while (ft_isdigit(str[i]))
 		n = (n * 10) + (str[i++] - '0');
 	if (neg == 1)
-		return (-n);
+		return (n * -1);
 	else
 		return (n);
 }

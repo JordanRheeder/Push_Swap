@@ -6,13 +6,12 @@
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 12:49:10 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/07/25 15:48:09 by jrheeder         ###   ########.fr       */
+/*   Updated: 2019/08/04 15:54:03 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include "push_swap.h"
-#include "stdio.h"
 
 int		valid_input_string(int ac, char **av)
 {

@@ -6,7 +6,7 @@
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 15:28:12 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/08/02 09:46:42 by jrheeder         ###   ########.fr       */
+/*   Updated: 2019/08/04 16:59:19 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,5 @@ int	main(int ac, char *av[])
 	print_stack(&stack_a);
 	printf("\n STACK B:\n");
 	print_stack(&stack_b);
-	printf("avg is: %d\n", avg_of_nodes(stack_a));
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 12:55:58 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/08/02 09:51:49 by jrheeder         ###   ########.fr       */
+/*   Updated: 2019/08/08 11:53:31 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,30 +27,38 @@ void	push(t_stack **head, int val)
 	*head = node;
 }
 
+void	stack_new(t_stack **stack, int val)
+{
+	(*stack)->num = val;
+	(*stack)->next = NULL;
+}
+
+
 int		pop(t_stack **head)
 {
-	int		retval;
+	int		ret;
 	t_stack	*next_node;
 
 	if (*head == NULL)
 		return (-1);
 	next_node = NULL;
-	retval = -1;
+	ret = -1;
 	next_node = (*head)->next;
-	retval = (*head)->num;
+	ret = (*head)->num;
 	free(*head);
 	*head = next_node;
-	return (retval);
+	return (ret);
 }
 
 int		list_length(t_stack **head)
 {
 	int		cnt;
-
+	t_stack *tmp;
 	cnt = 0;
-	while (*head != NULL)
+	tmp = *head;
+	while (tmp != NULL)
 	{
-		*head = (*head)->next;
+		tmp = tmp->next;
 		cnt++;
 	}
 	return (cnt);
@@ -64,8 +72,7 @@ t_stack		*str_stack_popu(t_stack *stack, char **argv)
 	stack = malloc(sizeof(t_stack));
 	args = ft_strsplit(argv[1], ' ');
 	i = ft_wordcount(argv[1], ' ') - 1;
-	stack->num = ft_atoi(args[i]);
-	stack->next = NULL;
+	stack_new(&stack, ft_atoi(args[i]));	
 	i--;
 	while (i >= 0)
 	{
@@ -88,19 +95,14 @@ t_stack		*stack_popu(int argc, char **argv)
 	if (argc == 2)
 	{
 		stack = str_stack_popu(stack, argv);
-		stack = normalise(&stack);
+		stack = normalize(&stack);
 		return (stack);
 	}
 	i = (argc - 1);
-	stack->num = ft_atoi(argv[i]);
-	stack->next = NULL;
-	i--;
+	stack_new(&stack, ft_atoi(argv[i--]));
 	while (i >= 1)
-	{
-		push(&stack, ft_atoi(argv[i]));
-		i--;
-	}
-	stack = normalise(&stack);
+		push(&stack, ft_atoi(argv[i--]));
+	stack = normalize(&stack);
 	return (stack);
 }
 

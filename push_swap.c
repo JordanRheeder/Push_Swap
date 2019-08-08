@@ -6,7 +6,7 @@
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 13:01:03 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/08/02 16:56:36 by jrheeder         ###   ########.fr       */
+/*   Updated: 2019/08/08 13:57:06 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,15 @@ int		main(int argc, char *argv[])
 	stack_b = NULL;
 	if (argc < 2)
 	{
-		ft_putstr_fd("Error\n", 2);
+		ft_putstr_fd("ps.c: Error\n", 2);
 		return (0);
 	}
 	if (valid_input(argc, argv))
 	{
-		stack_a = stack_popu(argc, argv); //need to count the arguments to call 
-		do_sort_3(&stack_a);						// the sorting algos
+		if (sorted(stack_a = stack_popu(argc, argv)))
+			return (0);
+		stack_b = NULL;
+		do_sort_3(&stack_a, &stack_b);
 	}
 	return (0);
 }

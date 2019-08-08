@@ -6,37 +6,37 @@
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 12:50:24 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/07/25 15:27:07 by jrheeder         ###   ########.fr       */
+/*   Updated: 2019/08/08 12:31:35 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-void	do_op(t_stack **stack_a, t_stack **stack_b, char *line)
+void	do_op(char *line, t_stack **a, t_stack **b)
 {
 	if (ft_strequ(line, "sa"))
-		sa(stack_a);
+		sa(a);
 	else if (ft_strequ(line, "sb"))
-		sb(stack_b);
+		sb(b);
 	else if (ft_strequ(line, "ss"))
-		ss(stack_a, stack_b);
+		ss(a, b);
 	else if (ft_strequ(line, "pa"))
-		pa(stack_a, stack_b);
+		pa(a, b);
 	else if (ft_strequ(line, "pb"))
-		pb(stack_b, stack_a);
+		pb(b, a);
 	else if (ft_strequ(line, "ra"))
-		ra(stack_a);
+		ra(a);
 	else if (ft_strequ(line, "rb"))
-		rb(stack_b);
+		rb(b);
 	else if (ft_strequ(line, "rr"))
-		rr(stack_a, stack_b);
+		rr(a, b);
 	else if (ft_strequ(line, "rra"))
-		rra(stack_a);
+		rra(a);
 	else if (ft_strequ(line, "rrb"))
-		rrb(stack_b);
+		rrb(b);
 	else if (ft_strequ(line, "rrr"))
-		rrr(stack_a, stack_b);
+		rrr(a, b);
 }
 
 int		check_op(char *line)
@@ -74,7 +74,7 @@ int		read_input(t_stack **a, t_stack **b, char **line)
 	{
 		if (check_line(*line))
 		{
-			do_op(a, b, *line);
+			do_op(*line, a, b);
 			free(*line);
 		}
 		else if (!(check_line(*line)))
@@ -84,4 +84,10 @@ int		read_input(t_stack **a, t_stack **b, char **line)
 		}
 	}
 	return (1);
+}
+
+void    print_do_op(char *op, t_stack **a, t_stack **b)
+{
+    ft_putendl_fd(op, 1);
+    do_op(op, a, b);
 }
