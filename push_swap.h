@@ -6,7 +6,7 @@
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 15:26:26 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/08/15 22:09:06 by jrheeder         ###   ########.fr       */
+/*   Updated: 2019/08/16 12:56:15 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ int					valid_input_string(int ac, char **av);
 void				do_sort_3(t_stack **a, t_stack **b);
 void				do_sort_5(t_stack **a, t_stack **b);
 void				do_sort_20(t_stack **a, t_stack **b);
-void				push_max_a(t_stack **b, t_stack **a, int repeat, int b_len);
+void				do_sort_500(t_stack **a, t_stack **b);
+void				push_max_a(t_stack **b, t_stack **a, int repeat);
 void				stack_new(t_stack **stack, int val);
 void				print_do_op(char *op, t_stack **a, t_stack **b);
 void				push_min_or_max_b(t_stack **a, t_stack **b, int repeat, int a_length);

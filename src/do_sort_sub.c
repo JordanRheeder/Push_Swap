@@ -6,7 +6,7 @@
 /*   By: jrheeder <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/15 12:34:34 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/08/15 22:10:48 by jrheeder         ###   ########.fr       */
+/*   Updated: 2019/08/16 11:36:51 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	push_min_or_max_b(t_stack **a, t_stack **b, int repeat, int a_length)
 	}
 }
 
-void	push_max_a(t_stack **b, t_stack **a, int repeat, int b_len)
+void	push_max_a(t_stack **b, t_stack **a, int repeat)
 {
 	int i;
 	int max;
@@ -94,9 +94,9 @@ void	push_max_a(t_stack **b, t_stack **a, int repeat, int b_len)
 			if (*b)
 				max = find_min_or_max(*b, 1);
 		}
-		else if (find_position(*b, max) > b_len / 2)
+		else if (find_position(*b, max) > list_length(b) / 2)
 			print_do_op("rrb", a, b);
-		else if (find_position(*b, max) <= b_len / 2)
+		else if (find_position(*b, max) <= list_length(b) / 2)
 			print_do_op("rb", a, b);
 	}
 }

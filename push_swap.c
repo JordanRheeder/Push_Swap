@@ -6,7 +6,7 @@
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 13:01:03 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/08/15 21:57:31 by jrheeder         ###   ########.fr       */
+/*   Updated: 2019/08/16 12:55:32 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int		main(int argc, char *argv[])
 			do_sort_5(&stack_a, &stack_b);
 		else if (stack_len >= 20 && stack_len <= 100)
 			do_sort_20(&stack_a, &stack_b);
+		else if (stack_len >= 101 && stack_len <= 500)
+			do_sort_500(&stack_a, &stack_b);
 	}
 	return (0);
 }

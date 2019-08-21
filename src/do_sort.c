@@ -84,7 +84,7 @@ void	do_sort_20(t_stack **a, t_stack **b)
 	i = 1;
 	while (*a)
 	{
-		range += 5;
+		range += 15;
 		while (i < range)
 		{
 			if (!(*a))
@@ -99,11 +99,32 @@ void	do_sort_20(t_stack **a, t_stack **b)
 		}
 	}
 	i--;
-	push_max_a(b, a, i, list_length(b));
+	push_max_a(b, a, i);
 }
 
-/*
-void	do_sort_100(t_stack **a, t_stack **b)
+void	do_sort_500(t_stack **a, t_stack **b)
 {
-	
-}*/
+	int	range;
+	int	i;
+
+	range = 0;
+	i = 1;
+	while (*a)
+	{
+		range += 37;
+		while (i < range)
+		{
+			if (!(*a))
+				break ;
+			if ((*a)->num <= range)
+			{
+				print_do_op("pb", a, b);
+				i++;
+			}
+			else
+				print_do_op("ra", a, b);
+		}
+	}
+	i--;
+	push_max_a(b, a, i);
+}
