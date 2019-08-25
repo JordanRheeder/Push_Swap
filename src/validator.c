@@ -26,27 +26,18 @@ int		only_digits(char *str)
 	return (1);
 }
 
-int		dupe_check(int ac, char **av)
+int		dupe_check(char **av)
 {
-	char	**str;
 	int		i;
 	int		j;
 
 	i = 1;
-	str = NULL;
-	if (ac == 2)
-	{
-		str = ft_strsplit(av[1], ' ');
-		i = 0;
-	}
-	else
-		str = av;
-	while (str[i])
+	while (av[i])
 	{
 		j = 1;
-		while (str[i + j] != '\0')
+		while (av[i + j] != '\0')
 		{
-			if (ft_strequ(str[i], str[i + j]))
+			if (ft_strequ(av[i], av[i + j]))
 				return (0);
 			j++;
 		}
@@ -59,12 +50,12 @@ int		valid_input(int ac, char **av)
 {
 	if (ac == 2)
 	{
-		if (!valid_input_string(ac, av))
+		if (!valid_input_string(av))
 			return (0);
 	}
 	else if (ac > 2)
 	{
-		if (!valid_input_int(ac, av))
+		if (!valid_input_int(av))
 			return (0);
 	}
 	return (1);
@@ -91,7 +82,7 @@ t_stack		*normalize(t_stack **stack)
 	t_stack	*s_tmp;
 	t_stack *tmp;
 	t_stack	*ret;
-	int		*order;
+	static int *order;
 	int		count;
 	int		i;
 
@@ -115,6 +106,8 @@ t_stack		*normalize(t_stack **stack)
 	stack_new(&ret, order[i--]);
 	while (i >= 0)
 		push(&ret, order[i--]);
-	free(order);
+	free(order); //cannot free stack...
+	//while(1);
+	//while (1);
 	return (ret);
 }

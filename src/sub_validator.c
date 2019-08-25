@@ -13,27 +13,37 @@
 #include "../libft/libft.h"
 #include "../push_swap.h"
 
-int		valid_input_string(int ac, char **av)
+int		valid_input_string(char **av)
 {
-	char	**arr;
+	static char	**arr;
 	int		i;
 
 	arr = ft_strsplit(av[1], ' ');
 	i = 0;
 	if (!only_digits(av[1]))
-		return (0);
-	if (!dupe_check(ac, av))
-		return (0);
+	{
+		free(arr); // empty malloc
+		return (0); //kill
+	}
+	if (!dupe_check(arr))
+	{
+		free(arr); // empty malloc
+		return (0); //kill
+	}
 	while (arr[i])
 	{
 		if (ft_int_overflows(arr[i]))
-			return (0);
+		{
+			free(arr); // empty malloc
+			return (0); //kill
+		}
 		i++;
 	}
-	return (1);
+
+	return (1); //kill
 }
 
-int		valid_input_int(int ac, char **av)
+int		valid_input_int(char **av)
 {
 	int i;
 
@@ -46,7 +56,7 @@ int		valid_input_int(int ac, char **av)
 			return (0);
 		i++;
 	}
-	if (!dupe_check(ac, av))
+	if (!dupe_check(av))
 		return (0);
 	return (1);
 }

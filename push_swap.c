@@ -33,7 +33,10 @@ int		main(int argc, char *argv[])
 	if (valid_input(argc, argv))
 	{
 		if (sorted(stack_a = stack_popu(argc, argv)))
+		{
+			free(stack_a);
 			return (0);
+		}
 		stack_b = NULL;
 		stack_len = list_length(&stack_a);
 		if (stack_len == 3)
@@ -45,5 +48,7 @@ int		main(int argc, char *argv[])
 		else if (stack_len >= 101 && stack_len <= 500)
 			do_sort_500(&stack_a, &stack_b);
 	}
+	while(1);
+	free(stack_a);
 	return (0);
 }

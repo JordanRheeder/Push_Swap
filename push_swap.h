@@ -35,10 +35,10 @@ void				do_op(char *line, t_stack **a, t_stack **b);
 int					valid_input(int ac, char **av);
 int					list_length(t_stack **head); //sl
 int					only_digits(char *str);
-int					dupe_check(int ac, char **av);
+int					dupe_check(char **av);
 int					avg_of_nodes(t_stack *head);
-int					valid_input_int(int ac, char **av);
-int					valid_input_string(int ac, char **av);
+int					valid_input_int(char **av);
+int					valid_input_string(char **av);
 void				do_sort_3(t_stack **a, t_stack **b);
 void				do_sort_5(t_stack **a, t_stack **b);
 void				do_sort_20(t_stack **a, t_stack **b);

@@ -21,7 +21,7 @@ void    push(t_stack **head, int val)
 {
 	t_stack *node;
 
-	node = malloc(sizeof(t_stack));
+	//node = malloc(sizeof(t_stack));
 	node->num = val;
 	node->next = *head;
 	*head = node;
