@@ -10,7 +10,6 @@ CSRC = checker.c \
 		src/rot_operations_02.c \
 		src/rot_operations_03.c \
 		src/list_operations.c \
-		src/list_counter.c \
 		src/sub_validator.c \
 		$(LIB)
 PSRC = push_swap.c \
@@ -22,7 +21,6 @@ PSRC = push_swap.c \
 		src/rot_operations_02.c \
 		src/rot_operations_03.c \
 		src/list_operations.c \
-		src/list_counter.c \
 		src/do_sort_sub.c \
 		$(LIB)
 

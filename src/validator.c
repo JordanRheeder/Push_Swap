@@ -89,6 +89,7 @@ t_stack		*normalize(t_stack **stack)
 	s_tmp = *stack;
 	order = (int*)malloc(sizeof(int) * list_length(stack));
 	i = -1;
+	ret = NULL;
 	while (s_tmp)
 	{
 		tmp = *stack;
@@ -102,12 +103,9 @@ t_stack		*normalize(t_stack **stack)
 		order[++i] = count;
 		s_tmp = s_tmp->next;
 	}
-	ret = malloc(sizeof(t_stack));
-	stack_new(&ret, order[i--]);
+	// ret = stack_new(order[i--]);
 	while (i >= 0)
 		push(&ret, order[i--]);
-	free(order); //cannot free stack...
-	//while(1);
-	//while (1);
+	free(order);
 	return (ret);
 }

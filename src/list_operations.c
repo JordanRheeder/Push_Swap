@@ -20,16 +20,19 @@ void	push(t_stack **head, int val)
 {
 	t_stack *node;
 
-	node = malloc(sizeof(t_stack));
-	node->num = val;
+	node = stack_new(val);
 	node->next = *head;
 	*head = node;
 }
 
-void	stack_new(t_stack **stack, int val)
+t_stack		*stack_new(int val)
 {
-	(*stack)->num = val;
-	(*stack)->next = NULL;
+	t_stack *stack;
+
+	stack = malloc(sizeof(t_stack));
+	(stack)->num = val;
+	(stack)->next = NULL;
+	return (stack);
 }
 
 
@@ -63,58 +66,50 @@ int		list_length(t_stack **head)
 	return (cnt);
 }
 
-t_stack		*str_stack_popu(t_stack *stack, char **argv)
+void	str_stack_popu(t_stack **stack, char **argv)
 {
 	int		i;
 	static char	**args;
-
-	//stack = malloc(sizeof(t_stack)); leak
 	args = ft_strsplit(argv[1], ' ');
 	i = ft_wordcount(argv[1], ' ') - 1;
-	stack_new(&stack, ft_atoi(args[i]));	
-	i--;
 	while (i >= 0)
 	{
-		push(&stack, ft_atoi(args[i]));
+		push(stack, ft_atoi(args[i]));
 		i--;
 	}
-	return (stack);
 }
 
 t_stack		*stack_popu(int argc, char **argv)
 {
 	t_stack	*stack;
 	t_stack *norm;
-	t_stack *temp;
 
 	int		i;
 	stack = NULL;
-	if (!(stack = malloc(sizeof(t_stack))))
-	{
-		ft_putstr_fd("Error\n", 2);
-		return (0);
-	}
+	norm = NULL;
 	if (argc == 2)
 	{
-		temp = str_stack_popu(stack, argv);
-		free(stack);
-		stack = temp;
+		str_stack_popu(&stack, argv);
 		norm = normalize(&stack);
-		free(stack);
+		while (stack)
+		{
+			free(stack);
+			stack = stack->next;
+		}
 		return (norm);
 	}
 	i = (argc - 1);
-	stack_new(&temp, ft_atoi(argv[i--]));
-	//free(temp);
+	stack = stack_new(ft_atoi(argv[i--]));
 	while (i >= 1)
 	{
-		temp = stack;
-		free(stack);
-		push(&temp, ft_atoi(argv[i--]));
+		push(&stack, ft_atoi(argv[i--]));
 	}
 	norm = normalize(&stack);
-	free(&*stack);
-	//while(1);
+	while (stack)
+	{
+		free(stack);
+		stack = stack->next;
+	}
 	return (norm);
 }
 
