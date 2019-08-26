@@ -16,31 +16,30 @@
 int		valid_input_string(char **av)
 {
 	static char	**arr;
-	int		i;
+	int			i;
 
 	arr = ft_strsplit(av[1], ' ');
 	i = 0;
 	if (!only_digits(av[1]))
 	{
-		free(arr); // empty malloc
-		return (0); //kill
+		free(arr);
+		return (0);
 	}
 	if (!dupe_check(arr))
 	{
-		free(arr); // empty malloc
-		return (0); //kill
+		free(arr);
+		return (0);
 	}
 	while (arr[i])
 	{
 		if (ft_int_overflows(arr[i]))
 		{
-			free(arr); // empty malloc
-			return (0); //kill
+			free(arr);
+			return (0);
 		}
 		i++;
 	}
-
-	return (1); //kill
+	return (1);
 }
 
 int		valid_input_int(char **av)
@@ -58,5 +57,18 @@ int		valid_input_int(char **av)
 	}
 	if (!dupe_check(av))
 		return (0);
+	return (1);
+}
+
+int		only_digits(char *str)
+{
+	while (*str)
+	{
+		if (*str == '-')
+			str++;
+		if (!(ft_isdigit(*str)) && (!(ft_iswhitespace(*str))))
+			return (0);
+		str++;
+	}
 	return (1);
 }

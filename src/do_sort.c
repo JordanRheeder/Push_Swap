@@ -1,4 +1,5 @@
 /* ************************************************************************** */
+/*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   do_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
@@ -21,14 +22,13 @@ void	do_sort_3(t_stack **a, t_stack **b)
 	first = (*a)->num;
 	second = (*a)->next->num;
 	last = (*a)->next->next->num;
-	
 	if (first > second && first < last)
 		print_do_op("sa", a, b);
 	else if (first > second && second > last)
-		{
-			print_do_op("sa", a, b);
-			print_do_op("rra", a, b);
-		}
+	{
+		print_do_op("sa", a, b);
+		print_do_op("rra", a, b);
+	}
 	else if (first > second && first > last)
 		print_do_op("ra", a, b);
 	else if (first < second && first < last)
@@ -38,19 +38,6 @@ void	do_sort_3(t_stack **a, t_stack **b)
 	}
 	else
 		print_do_op("rra", a, b);
-}
-
-int		find_last(t_stack *a)
-{
-	int ret;
-	ret = 0;
-	while (a)
-	{
-		if (a->next == NULL)
-			ret = a->num;
-		a = a->next;
-	}
-	return (ret);
 }
 
 void	do_sort_5(t_stack **a, t_stack **b)

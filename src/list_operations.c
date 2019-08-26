@@ -16,7 +16,16 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-void	push(t_stack **head, int val)
+void		free_list(t_stack *stack)
+{
+	while (stack)
+	{
+		free(stack);
+		stack = stack->next;
+	}
+}
+
+void		push(t_stack **head, int val)
 {
 	t_stack *node;
 
@@ -35,41 +44,11 @@ t_stack		*stack_new(int val)
 	return (stack);
 }
 
-
-int		pop(t_stack **head)
+void		str_stack_popu(t_stack **stack, char **argv)
 {
-	int		ret;
-	t_stack	*next_node;
-
-	if (*head == NULL)
-		return (-1);
-	next_node = NULL;
-	ret = -1;
-	next_node = (*head)->next;
-	ret = (*head)->num;
-	free(*head);
-	*head = next_node;
-	return (ret);
-}
-
-int		list_length(t_stack **head)
-{
-	int		cnt;
-	t_stack *tmp;
-	cnt = 0;
-	tmp = *head;
-	while (tmp != NULL)
-	{
-		tmp = tmp->next;
-		cnt++;
-	}
-	return (cnt);
-}
-
-void	str_stack_popu(t_stack **stack, char **argv)
-{
-	int		i;
 	static char	**args;
+	int			i;
+
 	args = ft_strsplit(argv[1], ' ');
 	i = ft_wordcount(argv[1], ' ') - 1;
 	while (i >= 0)
@@ -83,19 +62,15 @@ t_stack		*stack_popu(int argc, char **argv)
 {
 	t_stack	*stack;
 	t_stack *norm;
-
 	int		i;
+
 	stack = NULL;
 	norm = NULL;
 	if (argc == 2)
 	{
 		str_stack_popu(&stack, argv);
 		norm = normalize(&stack);
-		while (stack)
-		{
-			free(stack);
-			stack = stack->next;
-		}
+		free_list(stack);
 		return (norm);
 	}
 	i = (argc - 1);
@@ -105,23 +80,6 @@ t_stack		*stack_popu(int argc, char **argv)
 		push(&stack, ft_atoi(argv[i--]));
 	}
 	norm = normalize(&stack);
-	while (stack)
-	{
-		free(stack);
-		stack = stack->next;
-	}
+	free_list(stack);
 	return (norm);
-}
-
-void	print_stack(t_stack **stack)
-{
-	t_stack *print;
-
-	print = *stack;
-	while (print != NULL)
-	{
-		ft_putnbr(print->num);
-		ft_putchar('\n');
-		print = print->next;
-	}
 }

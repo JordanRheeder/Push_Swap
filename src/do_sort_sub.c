@@ -15,7 +15,7 @@
 int		find_position(t_stack *stack, int value)
 {
 	int position;
-	
+
 	position = 1;
 	while (stack)
 	{
@@ -34,7 +34,7 @@ int		find_min_or_max(t_stack *stack, int type)
 	int min_or_max;
 
 	min_or_max = stack->num;
-	if (type == 0) // min
+	if (type == 0)
 	{
 		while (stack)
 		{
@@ -43,7 +43,7 @@ int		find_min_or_max(t_stack *stack, int type)
 			stack = stack->next;
 		}
 	}
-	else if (type == 1) // max
+	else if (type == 1)
 	{
 		while (stack)
 		{
@@ -71,9 +71,11 @@ void	push_min_or_max_b(t_stack **a, t_stack **b, int repeat, int a_length)
 			print_do_op("pb", a, b);
 			iterator++;
 		}
-		else if (find_position(*a, min) > a_length / 2 || find_position(*a, max) > a_length / 2)
+		else if (find_position(*a, min) > a_length / 2 ||
+		find_position(*a, max) > a_length / 2)
 			print_do_op("rra", a, b);
-		else if (find_position(*a, min) < a_length / 2 || find_position(*a, max) < a_length / 2)
+		else if (find_position(*a, min) < a_length / 2 ||
+		find_position(*a, max) < a_length / 2)
 			print_do_op("ra", a, b);
 	}
 }
@@ -99,4 +101,18 @@ void	push_max_a(t_stack **b, t_stack **a, int repeat)
 		else if (find_position(*b, max) <= list_length(b) / 2)
 			print_do_op("rb", a, b);
 	}
+}
+
+int		find_last(t_stack *a)
+{
+	int ret;
+
+	ret = 0;
+	while (a)
+	{
+		if (a->next == NULL)
+			ret = a->num;
+		a = a->next;
+	}
+	return (ret);
 }

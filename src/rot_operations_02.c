@@ -23,7 +23,7 @@ void	ra(t_stack **stack_a)
 
 	first = (*stack_a);
 	last = (*stack_a);
-	if ((*stack_a)->next == NULL)
+	if (!*stack_a)
 		return ;
 	while (last->next != NULL)
 		last = last->next;
@@ -39,7 +39,7 @@ void	rb(t_stack **stack_b)
 
 	first = (*stack_b);
 	last = (*stack_b);
-	if ((*stack_b)->next == NULL)
+	if (!*stack_b)
 		return ;
 	while (last->next != NULL)
 		last = last->next;
@@ -50,6 +50,8 @@ void	rb(t_stack **stack_b)
 
 void	rr(t_stack **stack_a, t_stack **stack_b)
 {
+	if (!*stack_a || !*stack_b)
+		return ;
 	ra(stack_a);
 	rb(stack_b);
 }

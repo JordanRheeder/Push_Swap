@@ -26,10 +26,7 @@ int		main(int argc, char *argv[])
 	stack_len = 0;
 	stack_b = NULL;
 	if (argc < 2)
-	{
-		ft_putstr_fd("ps.c: Error\n", 2);
-		return (0);
-	}
+		ERROR;
 	if (valid_input(argc, argv))
 	{
 		if (sorted(stack_a = stack_popu(argc, argv)))

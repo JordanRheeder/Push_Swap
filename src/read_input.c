@@ -85,8 +85,8 @@ int		read_input(t_stack **a, t_stack **b, char **line)
 	return (1);
 }
 
-void    print_do_op(char *op, t_stack **a, t_stack **b)
+void	print_do_op(char *op, t_stack **a, t_stack **b)
 {
-    ft_putendl_fd(op, 1);
-    do_op(op, a, b);
+	ft_putendl_fd(op, 1);
+	do_op(op, a, b);
 }

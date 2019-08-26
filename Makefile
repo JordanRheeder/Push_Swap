@@ -11,17 +11,19 @@ CSRC = checker.c \
 		src/rot_operations_03.c \
 		src/list_operations.c \
 		src/sub_validator.c \
+		src/sub_list_operations.c \
 		$(LIB)
 PSRC = push_swap.c \
 		src/do_sort.c \
+		src/do_sort_sub.c \
 		src/validator.c \
 		src/sub_validator.c \
-		src/read_input.c \
 		src/rot_operations_01.c \
 		src/rot_operations_02.c \
 		src/rot_operations_03.c \
+		src/read_input.c \
 		src/list_operations.c \
-		src/do_sort_sub.c \
+		src/sub_list_operations.c \
 		$(LIB)
 
 all: $(CNME) $(PNME)

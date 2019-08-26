@@ -13,6 +13,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "libft/libft.h"
+# define ERROR {ft_putstr_fd("Error\n", 2); return (0);}
 
 typedef struct		s_stack
 {
@@ -20,33 +21,36 @@ typedef struct		s_stack
 	struct s_stack	*next;
 }					t_stack;
 
-void				push(t_stack **head, int val);
-int					pop(t_stack **head);
-void				print_stack(t_stack **stack);
 t_stack				*stack_popu(int ac, char **av);
-void				str_stack_popu(t_stack **stack, char **argv);
+t_stack				*stack_new(int val);
 t_stack				*normalize(t_stack **stack);
-int					read_input(t_stack **a, t_stack **b, char **line);
-int					sorted(t_stack *a);
+
+void				push(t_stack **head, int val);
+void				print_stack(t_stack **stack);
+void				str_stack_popu(t_stack **stack, char **argv);
 void				free_stack(t_stack *stack);
-int					check_line(char *line);
-int					check_op(char *line);
 void				do_op(char *line, t_stack **a, t_stack **b);
-int					valid_input(int ac, char **av);
-int					list_length(t_stack **head); //sl
-int					only_digits(char *str);
-int					dupe_check(char **av);
-int					avg_of_nodes(t_stack *head);
-int					valid_input_int(char **av);
-int					valid_input_string(char **av);
 void				do_sort_3(t_stack **a, t_stack **b);
 void				do_sort_5(t_stack **a, t_stack **b);
 void				do_sort_20(t_stack **a, t_stack **b);
 void				do_sort_500(t_stack **a, t_stack **b);
 void				push_max_a(t_stack **b, t_stack **a, int repeat);
-t_stack				*stack_new(int val);
 void				print_do_op(char *op, t_stack **a, t_stack **b);
-void				push_min_or_max_b(t_stack **a, t_stack **b, int repeat, int a_length);
+void				push_min_or_max_b(t_stack **a, t_stack **b,
+					int repeat, int a_length);
+
+int					pop(t_stack **head);
+int					read_input(t_stack **a, t_stack **b, char **line);
+int					sorted(t_stack *a);
+int					check_line(char *line);
+int					check_op(char *line);
+int					valid_input(int ac, char **av);
+int					list_length(t_stack **head);
+int					only_digits(char *str);
+int					dupe_check(char **av);
+int					avg_of_nodes(t_stack *head);
+int					valid_input_int(char **av);
+int					valid_input_string(char **av);
 int					find_min_or_max(t_stack *stack, int type);
 int					find_position(t_stack *stack, int value);
 

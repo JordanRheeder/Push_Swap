@@ -47,6 +47,8 @@ void	sa(t_stack **stack_a)
 {
 	t_stack *tmp;
 
+	if (!*stack_a)
+		return ;
 	tmp = *stack_a;
 	*stack_a = (*stack_a)->next;
 	tmp->next = (*stack_a)->next;
@@ -57,6 +59,8 @@ void	sb(t_stack **stack_b)
 {
 	t_stack *tmp;
 
+	if (!*stack_b)
+		return ;
 	tmp = *stack_b;
 	*stack_b = (*stack_b)->next;
 	tmp->next = (*stack_b)->next;
@@ -65,6 +69,8 @@ void	sb(t_stack **stack_b)
 
 void	ss(t_stack **stack_a, t_stack **stack_b)
 {
+	if (!*stack_b || !*stack_a)
+		return ;
 	sa(stack_a);
 	sb(stack_b);
 }

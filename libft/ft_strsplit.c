@@ -35,7 +35,7 @@ char			**ft_strsplit(char const *s, char c)
 	int		j;
 	int		k;
 	char	**arr;
-	
+
 	if (!s || !(arr = (char **)malloc(sizeof(*arr) *
 		(ft_wordcount(s, c) + 1))))
 		return (NULL);
@@ -45,9 +45,7 @@ char			**ft_strsplit(char const *s, char c)
 	{
 		k = 0;
 		if (!(arr[i] = ft_strnew(wordlen(&s[j], c) + 1)))
-		{	
 			arr[i] = NULL;
-		}
 		while (s[j] == c)
 			j++;
 		while (s[j] != c && s[j])

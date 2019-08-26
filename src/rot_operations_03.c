@@ -18,10 +18,8 @@ void	rra(t_stack **stack_a)
 	t_stack *seclast;
 	t_stack *last;
 
-	if ((*stack_a)->next == NULL)
-	{
+	if (!*stack_a)
 		return ;
-	}
 	seclast = NULL;
 	last = (*stack_a);
 	while (last->next != NULL)
@@ -39,7 +37,7 @@ void	rrb(t_stack **stack_b)
 	t_stack *seclast;
 	t_stack *last;
 
-	if ((*stack_b)->next == NULL)
+	if (!*stack_b)
 		return ;
 	seclast = NULL;
 	last = (*stack_b);
@@ -55,6 +53,8 @@ void	rrb(t_stack **stack_b)
 
 void	rrr(t_stack **stack_a, t_stack **stack_b)
 {
+	if (!*stack_a || !*stack_b)
+		return ;
 	rra(stack_a);
 	rrb(stack_b);
 }

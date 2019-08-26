@@ -13,20 +13,7 @@
 #include "../libft/libft.h"
 #include "../push_swap.h"
 
-int		only_digits(char *str)
-{
-	while (*str)
-	{
-		if (*str == '-')
-			str++;
-		if (!(ft_isdigit(*str)) && (!(ft_iswhitespace(*str))))
-			return (0);
-		str++;
-	}
-	return (1);
-}
-
-int		dupe_check(char **av)
+int			dupe_check(char **av)
 {
 	int		i;
 	int		j;
@@ -46,7 +33,7 @@ int		dupe_check(char **av)
 	return (1);
 }
 
-int		valid_input(int ac, char **av)
+int			valid_input(int ac, char **av)
 {
 	if (ac == 2)
 	{
@@ -61,7 +48,7 @@ int		valid_input(int ac, char **av)
 	return (1);
 }
 
-int		sorted(t_stack *stack_a)
+int			sorted(t_stack *stack_a)
 {
 	int temp;
 
@@ -77,19 +64,17 @@ int		sorted(t_stack *stack_a)
 	return (1);
 }
 
-t_stack		*normalize(t_stack **stack)
+static int	*get_order(t_stack **stack)
 {
 	t_stack	*s_tmp;
-	t_stack *tmp;
-	t_stack	*ret;
-	static int *order;
+	t_stack	*tmp;
+	int		*order;
 	int		count;
 	int		i;
 
 	s_tmp = *stack;
 	order = (int*)malloc(sizeof(int) * list_length(stack));
 	i = -1;
-	ret = NULL;
 	while (s_tmp)
 	{
 		tmp = *stack;
@@ -103,7 +88,18 @@ t_stack		*normalize(t_stack **stack)
 		order[++i] = count;
 		s_tmp = s_tmp->next;
 	}
-	// ret = stack_new(order[i--]);
+	return (order);
+}
+
+t_stack		*normalize(t_stack **stack)
+{
+	t_stack	*ret;
+	int		*order;
+	int		i;
+
+	ret = NULL;
+	i = list_length(stack) - 1;
+	order = get_order(stack);
 	while (i >= 0)
 		push(&ret, order[i--]);
 	free(order);
