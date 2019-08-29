@@ -6,7 +6,7 @@
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 12:59:22 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/08/15 22:13:14 by jrheeder         ###   ########.fr       */
+/*   Updated: 2019/08/26 16:43:59 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	rra(t_stack **stack_a)
 	t_stack *seclast;
 	t_stack *last;
 
-	if (!*stack_a)
+	if (!*stack_a || (*stack_a)->next == NULL)
 		return ;
 	seclast = NULL;
 	last = (*stack_a);
@@ -37,7 +37,7 @@ void	rrb(t_stack **stack_b)
 	t_stack *seclast;
 	t_stack *last;
 
-	if (!*stack_b)
+	if (!*stack_b || (*stack_b)->next == NULL)
 		return ;
 	seclast = NULL;
 	last = (*stack_b);

@@ -6,7 +6,7 @@
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 12:55:58 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/08/15 22:12:35 by jrheeder         ###   ########.fr       */
+/*   Updated: 2019/08/29 15:27:27 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,7 @@ t_stack		*stack_popu(int argc, char **argv)
 	i = (argc - 1);
 	stack = stack_new(ft_atoi(argv[i--]));
 	while (i >= 1)
-	{
 		push(&stack, ft_atoi(argv[i--]));
-	}
 	norm = normalize(&stack);
 	free_list(stack);
 	return (norm);

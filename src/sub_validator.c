@@ -6,7 +6,7 @@
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 12:49:10 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/08/15 22:13:38 by jrheeder         ###   ########.fr       */
+/*   Updated: 2019/08/29 15:28:05 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,13 @@ int		valid_input_string(char **av)
 	arr = ft_strsplit(av[1], ' ');
 	i = 0;
 	if (!only_digits(av[1]))
-	{
-		free(arr);
 		return (0);
-	}
 	if (!dupe_check(arr))
-	{
-		free(arr);
 		return (0);
-	}
 	while (arr[i])
 	{
 		if (ft_int_overflows(arr[i]))
-		{
-			free(arr);
 			return (0);
-		}
 		i++;
 	}
 	return (1);
@@ -49,9 +40,9 @@ int		valid_input_int(char **av)
 	i = 1;
 	while (av[i])
 	{
-		if (!only_digits(av[i]))
-			return (0);
 		if (ft_int_overflows(av[i]))
+			return (0);
+		if (!only_digits(av[i]))
 			return (0);
 		i++;
 	}

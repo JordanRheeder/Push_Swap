@@ -6,7 +6,7 @@
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 13:01:03 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/08/16 12:55:32 by jrheeder         ###   ########.fr       */
+/*   Updated: 2019/08/29 13:50:49 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		main(int argc, char *argv[])
 		stack_len = list_length(&stack_a);
 		if (stack_len == 3)
 			do_sort_3(&stack_a, &stack_b);
-		else if (stack_len >= 4 && stack_len <= 5)
+		else if (stack_len == 5)
 			do_sort_5(&stack_a, &stack_b);
 		else if (stack_len >= 20 && stack_len <= 100)
 			do_sort_20(&stack_a, &stack_b);

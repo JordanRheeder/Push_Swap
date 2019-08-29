@@ -6,7 +6,7 @@
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 15:28:12 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/08/04 16:59:19 by jrheeder         ###   ########.fr       */
+/*   Updated: 2019/08/29 13:54:12 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int ac, char *av[])
 	line = NULL;
 	stack_b = NULL;
 	if (ac < 2)
-		ERROR;
+		return (0);
 	if (valid_input(ac, av))
 	{
 		stack_a = stack_popu(ac, av);

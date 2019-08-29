@@ -6,7 +6,7 @@
 /*   By: jrheeder <jrheeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 20:11:28 by jrheeder          #+#    #+#             */
-/*   Updated: 2019/07/25 14:16:34 by jrheeder         ###   ########.fr       */
+/*   Updated: 2019/08/26 15:57:27 by jrheeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int		ft_int_overflows(const char *str)
 {
-	int	res;
-	int	neg;
+	long	res;
+	int		neg;
 
 	res = 0;
 	neg = 1;
@@ -23,10 +23,10 @@ int		ft_int_overflows(const char *str)
 		str++;
 	if (*str == '-' || *str == '+')
 	{
-		(*str == '-' || *str == '+') ? (neg = -1) : 1;
+		(*str == '-') ? (neg = -1) : 1;
 		str++;
 	}
-	while (*str && *str >= '0' && *str <= '9')
+	while (*str && (*str >= '0' && *str <= '9'))
 	{
 		res = (res * 10) + (*str - '0');
 		if (neg == 1)
